@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 
 const Results = () => {
 
-  const stateInput = useSelector(state => state.input);
+  const stateInput = useSelector(state => state.copyText);
+  console.log(stateInput);
 
   return (
 
@@ -12,11 +13,15 @@ const Results = () => {
 
       <h3 className='text-start px-3 py-3'>Results:</h3>
 
-        {
+
+
+      {
           stateInput?.map(
             (i) => (
-              <div key={i} className="card text-bg-dark mb-3">
-                {i}
+              <div key={i.text} className="card text-bg-dark mb-3">
+                {i.text}
+                <br/>
+                {i.palindrome === true ? '- Is Palindrome' : '- Not Palindrome'}
               </div>
             )
           )

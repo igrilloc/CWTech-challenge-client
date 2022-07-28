@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
-// Action:
-import { addText } from '../features/inputSlice';
+import { getText } from '../redux/actions';
 
 
 
@@ -11,8 +9,7 @@ const InputForm = () => {
 
   const [input, setInput] = React.useState(
     {
-      text: '',
-      palindrome: false
+      text: ''
     }
   );
 
@@ -32,7 +29,8 @@ const InputForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addText(input.text));
+    dispatch(getText(input.text))
+
   };
 
 
