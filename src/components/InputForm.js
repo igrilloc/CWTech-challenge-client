@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { getText } from '../redux/actions';
 
 
-
 const InputForm = () => {
 
 
@@ -29,7 +28,14 @@ const InputForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(getText(input.text))
+
+    if(input.text === '') {
+      alert('Complete input')
+    
+    } else {
+      dispatch(getText(input.text));
+
+    };
 
   };
 
